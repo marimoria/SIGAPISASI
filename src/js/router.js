@@ -64,29 +64,29 @@ const router = createRouter({
   ]
 });
 
-router.beforeEach(async (to, next) => {
+router.beforeEach(async (to) => {
   const requiresAuth = to.matched.some((record) => record.meta.requiresAuth);
   const requiresAdmin = to.matched.some((record) => record.meta.requiresAdmin);
   const notAllowAuth = to.matched.some((record) => record.meta.notAllowAuth);
   const notAllowAdmin = to.matched.some((record) => record.meta.notAllowAdmin);
 
   if (notAllowAuth && user.value) {
-    return next('/');
+    return '/';
   }
 
   if (notAllowAdmin && isAdmin.value) {
-    return next('/');
+    return '/';
   }
 
   if (requiresAuth && !user.value) {
-    return next('/');
+    return '/';
   }
 
   if (requiresAdmin && !isAdmin.value) {
-    return next('/');
+    return '/';
   }
 
-  return next();
+  return true;
 });
 
 export default router;

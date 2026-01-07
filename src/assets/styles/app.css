@@ -1,0 +1,147 @@
+@import 'tailwindcss';
+
+@theme {
+  /* =========================
+     BASE UI COLORS
+     ========================= */
+
+  --color-background: #f8f9fa;
+  --color-surface: #ffffff;
+  --color-border: #dee2e6;
+
+  /* =========================
+     TEXT COLORS
+     ========================= */
+
+  --color-text-main: #212529;
+  --color-text-muted: #6c757d;
+  --color-text-inverse: #ffffff;
+
+  /* =========================
+     NAVIGATION & ACTION COLORS
+     ========================= */
+
+  --color-blue-700: #0b5ed7;
+  --color-blue-800: #083d9b;
+
+  /* =========================
+     STATUS COLORS (SEMANTIC)
+     ========================= */
+
+  --color-safe: #2e8b57;
+  --color-watch: #ffc107;
+  --color-alert: #fd7e14;
+  --color-danger: #dc3545;
+
+  /* =========================
+     DATA & INFO HIGHLIGHTS
+     ========================= */
+
+  --color-info: #0dcaf0;
+
+  /* =========================
+     TYPOGRAPHY
+     ========================= */
+
+  --font-sans: 'Inter', system-ui, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: var(--font-sans);
+  background-color: var(--color-background);
+  color: var(--color-text-main);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* =========================
+   INTERACTION UTILITIES
+   ========================= */
+
+/* Prefer Tailwind utilities, keep this only if reused a lot */
+.hover-scale {
+  transition: transform 0.2s ease;
+}
+.hover-scale:hover {
+  transform: scale(1.05);
+}
+
+/* =========================
+   ROUTER TRANSITIONS (Vue)
+   ========================= */
+
+.fade-slide-router-enter-active,
+.fade-slide-router-leave-active {
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease;
+}
+
+.fade-slide-router-enter-from,
+.fade-slide-router-leave-to {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.fade-slide-router-enter-to,
+.fade-slide-router-leave-from {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =========================
+   TEXT EMPHASIS (RARE USE)
+   ========================= */
+
+/* Use only where semantic color utilities are insufficient */
+.text-safe {
+  color: var(--color-safe);
+}
+
+.text-watch {
+  color: var(--color-watch);
+}
+
+.text-alert {
+  color: var(--color-alert);
+}
+
+.text-danger {
+  color: var(--color-danger);
+}
+
+/* =========================
+   SCROLLBAR STYLING
+   ========================= */
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--color-background);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-blue-700);
+  border-radius: 10px;
+  border: 2px solid var(--color-background);
+}
+
+/* Scrollbar inside cards or modals */
+.popup-card::-webkit-scrollbar-thumb {
+  background-color: var(--color-blue-800);
+}

@@ -1,0 +1,36 @@
+{
+  "name": "sigapisasi",
+  "homepage": "https://marimoria.github.io/SIGAPISASI/",
+  "version": "0.0.0",
+  "private": false,
+  "type": "module",
+  "engines": {
+    "node": "^20.19.0 || >=22.12.0"
+  },
+  "scripts": {
+    "dev": "vite --host",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test:unit": "vitest",
+    "format": "prettier --write --experimental-cli src/",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.89.0",
+    "gsap": "^3.14.2",
+    "vue": "^3.5.26",
+    "vue-router": "^4.6.4"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^6.0.3",
+    "@vue/test-utils": "^2.4.6",
+    "gh-pages": "^6.3.0",
+    "jsdom": "^27.4.0",
+    "prettier": "3.7.4",
+    "sass-embedded": "^1.97.2",
+    "vite": "^7.3.0",
+    "vite-plugin-vue-devtools": "^8.0.5",
+    "vitest": "^4.0.16"
+  }
+}
